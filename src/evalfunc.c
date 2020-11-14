@@ -3745,12 +3745,13 @@ static void
 f_float2nr(typval_T *argvars, typval_T *rettv)
 {
   float_T f = 0.0;
+  float var_max = (float)VARNUM_MAX;
 
   if (get_float_arg(argvars, &f) == OK)
   {
-    if (f <= -VARNUM_MAX + DBL_EPSILON)
+    if (f <= -var_max + DBL_EPSILON)
       rettv->vval.v_number = -VARNUM_MAX;
-    else if (f >= VARNUM_MAX - DBL_EPSILON)
+    else if (f >= var_max - DBL_EPSILON)
       rettv->vval.v_number = VARNUM_MAX;
     else
       rettv->vval.v_number = (varnumber_T)f;
