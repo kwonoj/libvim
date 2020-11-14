@@ -67,7 +67,7 @@ dnl Check for the flag that fails if stuff are missing.
 AC_MSG_CHECKING(--enable-fail-if-missing argument)
 AC_ARG_ENABLE(fail_if_missing,
 	[  --enable-fail-if-missing    Fail if dependencies on additional features
-     specified on the command line are missing.], 
+     specified on the command line are missing.],
 	[fail_if_missing="yes"],
 	[fail_if_missing="no"])
 AC_MSG_RESULT($fail_if_missing)
@@ -2598,15 +2598,15 @@ main() {char *s; s=(char *)tgoto("%p1%d", 0, 1); exit(0); }],
   fi
 fi
 
-if test "x$olibs" = "x$LIBS"; then
-  AC_MSG_CHECKING([for tgetent()])
-  AC_TRY_LINK([],
-      [char s[10000]; int res = tgetent(s, "thisterminaldoesnotexist");],
-	AC_MSG_RESULT(yes),
-	AC_MSG_ERROR([NOT FOUND!
-      You need to install a terminal library; for example ncurses.
-      Or specify the name of the library with --with-tlib.]))
-fi
+#if test "x$olibs" = "x$LIBS"; then
+#  AC_MSG_CHECKING([for tgetent()])
+#  AC_TRY_LINK([],
+#      [char s[10000]; int res = tgetent(s, "thisterminaldoesnotexist");],
+#	AC_MSG_RESULT(yes),
+#	AC_MSG_ERROR([NOT FOUND!
+#      You need to install a terminal library; for example ncurses.
+#      Or specify the name of the library with --with-tlib.]))
+#fi
 
 AC_CACHE_CHECK([whether we talk terminfo], [vim_cv_terminfo],
   [
